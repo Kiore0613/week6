@@ -20,7 +20,7 @@ export const vehicleData: Vehicle[] = [
   },
   {
     brand: 'Honda',
-    category: 'Japanesse',
+    category: 'Japanese',
     engineDescription: [
       'gasoline engine',
       'VTEC TURBO',
@@ -38,7 +38,7 @@ export const vehicleData: Vehicle[] = [
   },
   {
     brand: 'Mitsubishi',
-    category: 'Japanesse',
+    category: 'Japanese',
     engineDescription: [
       'The 2020 Outlander is equipped with 166 horsepower',
       'dual 2.4L MIVEC (Mitsubishi Innovative Valve-timing Electronic Control)',

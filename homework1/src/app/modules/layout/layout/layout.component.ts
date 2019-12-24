@@ -1,7 +1,7 @@
 import { VehicleCollection } from './../models/vehicle-collection';
 import { vehicleData } from './../mock/vehicles.mock';
 import { Vehicle } from './../models/vehicle';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-layout',
@@ -9,8 +9,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-
-  @Output() setVehicle = new EventEmitter();
 
   arrVehicle: Array<Vehicle> = vehicleData;
   arrAmerican: VehicleCollection[] = [{
