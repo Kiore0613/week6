@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { VehicleCollection } from '../models/vehicle-collection';
 
 @Component({
   selector: 'app-accordion',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccordionComponent implements OnInit {
 
+  isOpen = false;
+  @Input() vehicles: VehicleCollection;
   constructor() { }
 
+  //categoryCollection = this.vehicles.categoryName;
+
   ngOnInit() {
+    console.log(this.vehicles);
   }
 
 }

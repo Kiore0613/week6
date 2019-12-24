@@ -1,1 +1,15 @@
-<p>accordion works!</p>
+<div class="accordin" *ngFor="let vehicle of vehicles">
+  <details [open]="isOpen">
+    <summary>{{vehicle.categoryName}}</summary>
+    <div class="body" *ngFor="let item of vehicle.vehicleCollection">
+      <span>{{item.brand}}</span>
+      <span>{{item.model}}</span>
+      <span>{{item.price}}</span>
+      <span>{{item.releaseYear}}</span>
+      <span>{{item.weight}}</span>
+      <img [src]="item.logo">
+      <img [src]="item.image">
+    </div>
+    <p></p>
+  </details>
+</div>
