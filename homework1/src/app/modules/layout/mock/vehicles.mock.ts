@@ -1,4 +1,5 @@
 import { Vehicle } from './../models/vehicle';
+
 export const vehicleData: Vehicle[] = [
   {
     brand: 'Chevrolet',
