@@ -1,19 +1,19 @@
 @import '_variables.scss';
 
 @mixin screen-tablet {
-  @media (max-width: #{$screen-tablet}) {
+  @media (min-width: #{$screen-tablet}) {
     @content;
   }
 }
 
 @mixin screen-laptop {
-  @media (max-width: #{$screen-laptop}) {
+  @media (min-width: #{$screen-laptop}) {
     @content;
   }
 }
 
 @mixin screen-laptop-l {
-  @media (max-width: #{$screen-laptop-l}) {
+  @media (min-width: #{$screen-laptop-l}) {
     @content;
   }
 }

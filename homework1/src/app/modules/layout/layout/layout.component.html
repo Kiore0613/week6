@@ -1,4 +1,6 @@
 <header>Kiore's Rent Cars</header>
-<div class="accordion" *ngFor="let item of arrVehicleCollection">
-  <app-accordion [vehicles]="item"></app-accordion>
+<div class="container">
+  <div *ngFor="let item of arrVehicleCollection" class="accordion">
+    <app-accordion [vehicles]="item"></app-accordion>
+  </div>
 </div>

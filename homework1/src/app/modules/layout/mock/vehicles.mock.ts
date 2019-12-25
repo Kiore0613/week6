@@ -78,7 +78,7 @@ export const vehicleData: Vehicle[] = [
       'Maximum torque revolutions 6,100 rpm'
     ],
     image: 'https://i.blogs.es/8b7ad7/porsche-911-2019-992-6-/450_1000.jpg',
-    logo: 'https://d1eip2zddc2vdv.cloudfront.net/dphotos/750x400/12710-1528188795.jpg',
+    logo: 'https://images-na.ssl-images-amazon.com/images/I/61b2FkbZsEL._SL1000_.jpg',
     model: 'BMW M6 COUPE ',
     price: 135000,
     releaseYear: '2019',
