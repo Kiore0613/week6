@@ -1,7 +1,7 @@
 <!--<div class="accordin" *ngFor="let vehicle of vehicles">-->
 <details [open]="isOpen">
   <summary>{{vehicles.categoryName}}</summary>
-  <div class="body" *ngFor="let item of vehicles.vehicleCollection">
+  <div *ngFor="let item of vehicles.vehicleCollection">
     <img [src]="item.logo" class="img-logo">
     <div class="item-container">
       <h2>Brand:</h2>
