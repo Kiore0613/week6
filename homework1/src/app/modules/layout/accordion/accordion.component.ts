@@ -12,8 +12,6 @@ export class AccordionComponent implements OnInit {
   @Input() vehicles: VehicleCollection;
   constructor() { }
 
-  //categoryCollection = this.vehicles.categoryName;
-
   ngOnInit() {
     console.log(this.vehicles);
   }

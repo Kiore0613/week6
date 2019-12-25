@@ -29,6 +29,7 @@ export class LayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.arrVehicleCollection);
   }
 
 }
