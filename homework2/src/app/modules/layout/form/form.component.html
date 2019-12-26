@@ -1,7 +1,16 @@
 <div class="container">
   <form #form="ngForm" (ngSubmit)="submit(form)">
+
     <label for="name">Name: </label>
-    <input type="text" id="name" name="name" ngModel #name="ngModel" minlength="4" maxlength="15" required>
+    <input 
+      type="text" 
+      id="name" 
+      name="name" 
+      ngModel 
+      #name="ngModel" 
+      minlength="4" 
+      maxlength="15" 
+      required>
     <div class="error" *ngIf="name.touched && name.invalid">
       <div *ngIf="name?.errors?.required">
         Field Name is required
@@ -14,7 +23,15 @@
       </div>
     </div>
     <label for="lastName">Last name: </label>
-    <input type="text" id="lastName" name="lastName" ngModel #lastName="ngModel" minlength="4" maxlength="15" required>
+    <input 
+      type="text" 
+      id="lastName" 
+      name="lastName" 
+      ngModel 
+      #lastName="ngModel" 
+      minlength="4" 
+      maxlength="15" 
+      required>
     <div class="error" *ngIf="lastName.touched && lastName.invalid">
       <div *ngIf="lastName?.errors?.required">
         Field Last Name is required
@@ -26,9 +43,16 @@
         The maximun length is {{lastName?.errors?.maxlength.requiredLength}} characters
       </div>
     </div>
-
     <label for="email">Email: </label>
-    <input type="email" id="email" name="email" ngModel #email="ngModel" minlength="4" maxlength="15" required>
+    <input 
+      type="email" 
+      id="email" 
+      name="email" 
+      ngModel 
+      #email="ngModel" 
+      minlength="4" 
+      maxlength="15" 
+      required>
     <div class="error" *ngIf="email.touched && email.invalid">
       <div *ngIf="email?.errors?.required">
         Field Email is required
@@ -38,7 +62,14 @@
       </div>
     </div>
     <label for="password">Password: </label>
-    <input type="password" id="password" name="password" ngModel #password="ngModel" minlength="6" required>
+    <input 
+      type="password" 
+      id="password" 
+      name="password" 
+      ngModel 
+      #password="ngModel" 
+      minlength="6" 
+      required>
     <div class="error" *ngIf="password.touched && password.invalid">
       <div *ngIf="password?.errors?.required">
         Field Password is required
@@ -62,17 +93,32 @@
       </div>
     </div>
     <label for="birthDate">Birth date: </label>
-    <input type="date" id="birthDate" name="birthDate" ngModel #birthDate="ngModel" appBirthdate required>
+    <input 
+      type="date" 
+      id="birthDate" 
+      name="birthDate" 
+      ngModel 
+      #birthDate="ngModel" 
+      appBirthdate 
+      required>
     <div class="error" *ngIf="birthDate.touched && birthDate.invalid">
       <div *ngIf="birthDate?.errors?.required">
         Field Birth date Number is required
       </div>
-      <div *ngIf="birthDate?.errors?.invalidPhoneFormat">
+      <div *ngIf="birthDate?.errors?.invalidDate">
         The BirthDate format is invalid
       </div>
     </div>
     <label for="telephone">Telephone number: </label>
-    <input type="text" id="telephone" name="telephone" ngModel #telephone="ngModel" minlength="8" maxlength="8" appPhone
+    <input 
+      type="text" 
+      id="telephone" 
+      name="telephone" 
+      ngModel 
+      #telephone="ngModel" 
+      minlength="8" 
+      maxlength="8" 
+      appPhone
       required>
     <div class="error" *ngIf="telephone.touched && telephone.invalid">
       <div *ngIf="telephone?.errors?.required">
@@ -93,12 +139,36 @@
       </div>
     </div>
     <label for="aboutMe">About me: </label>
-    <textarea id="aboutMe" name="aboutMe" ngModel #aboutMe="ngModel" cols="40" rows="10">
+    <textarea 
+      id="aboutMe" 
+      name="aboutMe" 
+      ngModel 
+      #aboutMe="ngModel" 
+      cols="40" 
+      rows="10">
     </textarea>
     <label>Genre:</label>
-    <input type="radio">
+    <div *ngFor="let gender of arrGenres">
+      <input 
+      type="radio" 
+      [id]="gender.id" 
+      name="genre" 
+      ngModel 
+      #genre="ngModel" 
+      [value]="gender.id" 
+      required>
+      <label [for]="gender.id"> {{gender.genre}} </label>
+    </div>
     <label>Country:</label>
-    <select name="country" id="country"></select>
+    <select 
+    id="country" 
+    name="country" 
+    ngModel 
+    #country="ngModel"  
+    required>
+      <option selected disabled value="Select your country">Select your country</option>
+      <option *ngFor="let countryItem of arrCountries">{{countryItem.country}}</option>
+    </select>
     <label>State:</label>
     <select name="state" id="state"></select>
     <label>I Agree</label>
