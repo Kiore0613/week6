@@ -6,7 +6,6 @@ import { Validator, FormControl, ValidationErrors, NG_VALIDATORS } from '@angula
   providers: [{ provide: NG_VALIDATORS, useExisting: PhoneDirective, multi: true }]
 })
 export class PhoneDirective implements Validator {
-
   constructor() { }
 
   validate(control: FormControl): ValidationErrors {

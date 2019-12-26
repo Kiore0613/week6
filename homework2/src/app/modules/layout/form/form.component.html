@@ -62,7 +62,15 @@
       </div>
     </div>
     <label for="birthDate">Birth date: </label>
-    <input type="date" id="birthDate" #birthDate>
+    <input type="date" id="birthDate" name="birthDate" ngModel #birthDate="ngModel" appBirthdate required>
+    <div class="error" *ngIf="birthDate.touched && birthDate.invalid">
+      <div *ngIf="birthDate?.errors?.required">
+        Field Birth date Number is required
+      </div>
+      <div *ngIf="birthDate?.errors?.invalidPhoneFormat">
+        The BirthDate format is invalid
+      </div>
+    </div>
     <label for="telephone">Telephone number: </label>
     <input type="text" id="telephone" name="telephone" ngModel #telephone="ngModel" minlength="8" maxlength="8" appPhone
       required>
