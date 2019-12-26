@@ -52,7 +52,7 @@
       #confirmPassword="ngModel" minlength="6" required>
     <div class="error" *ngIf="confirmPassword.touched && confirmPassword.invalid">
       <div *ngIf="confirmPassword?.errors?.required">
-        Field Password is required
+        Field Confirm Password is required
       </div>
       <div *ngIf="confirmPassword?.errors?.minlength">
         The minimum length is {{confirmPassword?.errors?.minlength.requiredLength}} characters
@@ -63,8 +63,20 @@
     </div>
     <label for="birthDate">Birth date: </label>
     <input type="date" id="birthDate" #birthDate>
-    <label for="phone">Telephone number: </label>
-    <input type="number" id="phone" #phone>
+    <label for="telephone">Telephone number: </label>
+    <input type="text" id="telephone" name="telephone" ngModel #telephone="ngModel" minlength="8" maxlength="8" appPhone
+      required>
+    <div class="error" *ngIf="telephone.touched && telephone.invalid">
+      <div *ngIf="telephone?.errors?.required">
+        Field Telephone Number is required
+      </div>
+      <div *ngIf="telephone?.errors?.minlength">
+        The minimum length is {{telephone?.errors?.minlength.requiredLength}} characters
+      </div>
+      <div *ngIf="telephone?.errors?.invalidPhoneFormat">
+        The Telephone format is invalid
+      </div>
+    </div>
     <label for="url">Personal site URL: </label>
     <input type="url" id="url" #url>
     <label for="aboutMe">About me: </label>
