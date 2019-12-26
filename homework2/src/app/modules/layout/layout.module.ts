@@ -5,13 +5,13 @@ import { LayoutComponent } from './layout/layout.component';
 import { PhoneDirective } from './directives/phone/phone.directive';
 import { UrlDirective } from './directives/url/url.directive';
 import { BirthdateDirective } from './directives/birthdate/birthdate.directive';
-
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [FormComponent, LayoutComponent, PhoneDirective, UrlDirective, BirthdateDirective],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [FormComponent, LayoutComponent, PhoneDirective, UrlDirective, BirthdateDirective]
 })
