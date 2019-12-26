@@ -1,179 +1,272 @@
-<div class="container">
-  <form #form="ngForm" (ngSubmit)="submit(form)">
-
-    <label for="name">Name: </label>
-    <input 
-      type="text" 
-      id="name" 
-      name="name" 
-      ngModel 
-      #name="ngModel" 
-      minlength="4" 
-      maxlength="15" 
-      required>
-    <div class="error" *ngIf="name.touched && name.invalid">
-      <div *ngIf="name?.errors?.required">
-        Field Name is required
-      </div>
-      <div *ngIf="name?.errors?.minlength">
-        The minimum length is {{name?.errors?.minlength.requiredLength}} characters
-      </div>
-      <div *ngIf="name?.errors?.maxlength">
-        The maximun length is {{name?.errors?.maxlength.requiredLength}} characters
-      </div>
-    </div>
-    <label for="lastName">Last name: </label>
-    <input 
-      type="text" 
-      id="lastName" 
-      name="lastName" 
-      ngModel 
-      #lastName="ngModel" 
-      minlength="4" 
-      maxlength="15" 
-      required>
-    <div class="error" *ngIf="lastName.touched && lastName.invalid">
-      <div *ngIf="lastName?.errors?.required">
-        Field Last Name is required
-      </div>
-      <div *ngIf="lastName?.errors?.minlength">
-        The minimum length is {{lastName?.errors?.minlength.requiredLength}} characters
-      </div>
-      <div *ngIf="lastName?.errors?.maxlength">
-        The maximun length is {{lastName?.errors?.maxlength.requiredLength}} characters
+<form #form="ngForm" (ngSubmit)="submit(form)">
+  <div class="container">
+    <div class="group-container">
+      <label for="name">Name: </label>
+      <input
+        class="input-form"
+        type="text"
+        id="name"
+        name="name"
+        ngModel
+        #name="ngModel"
+        minlength="4"
+        maxlength="15"
+        required
+      />
+      <div class="error" *ngIf="name.touched && name.invalid">
+        <div error-text *ngIf="name?.errors?.required">
+          Field Name is required
+        </div>
+        <div class="error-text" *ngIf="name?.errors?.minlength">
+          The minimum length is
+          {{ name?.errors?.minlength.requiredLength }} characters
+        </div>
+        <div class="error-text" *ngIf="name?.errors?.maxlength">
+          The maximun length is
+          {{ name?.errors?.maxlength.requiredLength }} characters
+        </div>
       </div>
     </div>
-    <label for="email">Email: </label>
-    <input 
-      type="email" 
-      id="email" 
-      name="email" 
-      ngModel 
-      #email="ngModel" 
-      minlength="4" 
-      maxlength="15" 
-      required>
-    <div class="error" *ngIf="email.touched && email.invalid">
-      <div *ngIf="email?.errors?.required">
-        Field Email is required
-      </div>
-      <div *ngIf="email?.errors?.email">
-        The Email format is invalid
-      </div>
-    </div>
-    <label for="password">Password: </label>
-    <input 
-      type="password" 
-      id="password" 
-      name="password" 
-      ngModel 
-      #password="ngModel" 
-      minlength="6" 
-      required>
-    <div class="error" *ngIf="password.touched && password.invalid">
-      <div *ngIf="password?.errors?.required">
-        Field Password is required
-      </div>
-      <div *ngIf="password?.errors?.minlength">
-        The minimum length is {{password?.errors?.minlength.requiredLength}} characters
+    <div class="group-container">
+      <label for="lastName">Last name: </label>
+      <input
+        class="input-form"
+        type="text"
+        id="lastName"
+        name="lastName"
+        ngModel
+        #lastName="ngModel"
+        minlength="4"
+        maxlength="15"
+        required
+      />
+      <div class="error" *ngIf="lastName.touched && lastName.invalid">
+        <div class="error-text" *ngIf="lastName?.errors?.required">
+          Field Last Name is required
+        </div>
+        <div class="error-text" *ngIf="lastName?.errors?.minlength">
+          The minimum length is
+          {{ lastName?.errors?.minlength.requiredLength }} characters
+        </div>
+        <div class="error-text" *ngIf="lastName?.errors?.maxlength">
+          The maximun length is
+          {{ lastName?.errors?.maxlength.requiredLength }} characters
+        </div>
       </div>
     </div>
-    <label for="confirmPassword">Confirm password: </label>
-    <input type="password" [pattern]="password.value" id="confirmPassword" name="confirmPassword" ngModel
-      #confirmPassword="ngModel" minlength="6" required>
-    <div class="error" *ngIf="confirmPassword.touched && confirmPassword.invalid">
-      <div *ngIf="confirmPassword?.errors?.required">
-        Field Confirm Password is required
-      </div>
-      <div *ngIf="confirmPassword?.errors?.minlength">
-        The minimum length is {{confirmPassword?.errors?.minlength.requiredLength}} characters
-      </div>
-      <div *ngIf="confirmPassword?.errors?.pattern">
-        Passwords doesn't match
+    <div class="group-container">
+      <label for="email">Email: </label>
+      <input
+        class="input-form"
+        type="email"
+        id="email"
+        name="email"
+        ngModel
+        #email="ngModel"
+        minlength="4"
+        maxlength="15"
+        required
+      />
+      <div class="error" *ngIf="email.touched && email.invalid">
+        <div class="error-text" *ngIf="email?.errors?.required">
+          Field Email is required
+        </div>
+        <div class="error-text" *ngIf="email?.errors?.email">
+          The Email format is invalid
+        </div>
       </div>
     </div>
+    <div class="group-container">
+      <label for="password">Password: </label>
+      <input
+        class="input-form"
+        type="password"
+        id="password"
+        name="password"
+        ngModel
+        #password="ngModel"
+        minlength="6"
+        required
+      />
+      <div class="error" *ngIf="password.touched && password.invalid">
+        <div class="error-text" *ngIf="password?.errors?.required">
+          Field Password is required
+        </div>
+        <div class="error-text" *ngIf="password?.errors?.minlength">
+          The minimum length is
+          {{ password?.errors?.minlength.requiredLength }} characters
+        </div>
+      </div>
+    </div>
+    <div class="group-container">
+      <label for="confirmPassword">Confirm password: </label>
+      <input
+        class="input-form"
+        type="password"
+        [pattern]="password.value"
+        id="confirmPassword"
+        name="confirmPassword"
+        ngModel
+        #confirmPassword="ngModel"
+        minlength="6"
+        required
+      />
+      <div
+        class="error"
+        *ngIf="confirmPassword.touched && confirmPassword.invalid"
+      >
+        <div class="error-text" *ngIf="confirmPassword?.errors?.required">
+          Field Confirm Password is required
+        </div>
+        <div class="error-text" *ngIf="confirmPassword?.errors?.minlength">
+          The minimum length is
+          {{ confirmPassword?.errors?.minlength.requiredLength }} digits
+        </div>
+        <div class="error-text" *ngIf="confirmPassword?.errors?.pattern">
+          Passwords dont match
+        </div>
+      </div>
+    </div>
+    <div class="group-container">
     <label for="birthDate">Birth date: </label>
-    <input 
-      type="date" 
-      id="birthDate" 
-      name="birthDate" 
-      ngModel 
-      #birthDate="ngModel" 
-      appBirthdate 
-      required>
+    <input
+      class="input-form"
+      type="date"
+      id="birthDate"
+      name="birthDate"
+      ngModel
+      #birthDate="ngModel"
+      appBirthdate
+      required
+    />
     <div class="error" *ngIf="birthDate.touched && birthDate.invalid">
-      <div *ngIf="birthDate?.errors?.required">
+      <div class="error-text" *ngIf="birthDate?.errors?.required">
         Field Birth date Number is required
       </div>
-      <div *ngIf="birthDate?.errors?.invalidDate">
+      <div class="error-text" *ngIf="birthDate?.errors?.invalidDate">
         The BirthDate format is invalid
       </div>
     </div>
+  </div>
+  <div class="group-container">
     <label for="telephone">Telephone number: </label>
-    <input 
-      type="text" 
-      id="telephone" 
-      name="telephone" 
-      ngModel 
-      #telephone="ngModel" 
-      minlength="8" 
-      maxlength="8" 
+    <input
+      class="input-form"
+      type="text"
+      id="telephone"
+      name="telephone"
+      ngModel
+      #telephone="ngModel"
+      minlength="8"
+      maxlength="8"
       appPhone
-      required>
+      required
+    />
     <div class="error" *ngIf="telephone.touched && telephone.invalid">
-      <div *ngIf="telephone?.errors?.required">
+      <div class="error-text" *ngIf="telephone?.errors?.required">
         Field Telephone Number is required
       </div>
-      <div *ngIf="telephone?.errors?.minlength">
-        The minimum length is {{telephone?.errors?.minlength.requiredLength}} characters
+      <div class="error-text" *ngIf="telephone?.errors?.minlength">
+        The minimum length is
+        {{ telephone?.errors?.minlength.requiredLength }} characters
       </div>
-      <div *ngIf="telephone?.errors?.invalidPhoneFormat">
+      <div class="error-text" *ngIf="telephone?.errors?.invalidPhoneFormat">
         The Telephone format is invalid
       </div>
     </div>
+  </div>
+  <div class="group-container">
     <label for="url">Personal site URL: </label>
-    <input type="text" id="url" name="url" ngModel #url="ngModel" appUrl>
+    <input
+      class="input-form"
+      type="text"
+      id="url"
+      name="url"
+      ngModel
+      #url="ngModel"
+      appUrl
+    />
     <div class="error" *ngIf="url.dirty && url.invalid">
-      <div *ngIf="url?.errors?.invalidUrlFormat">
+      <div
+        class="error-text"
+        class="error-text"
+        *ngIf="url?.errors?.invalidUrlFormat"
+      >
         The URL format is invalid
       </div>
     </div>
+  </div>
+  <div class="group-container">
     <label for="aboutMe">About me: </label>
-    <textarea 
-      id="aboutMe" 
-      name="aboutMe" 
-      ngModel 
-      #aboutMe="ngModel" 
-      cols="40" 
-      rows="10">
+    <textarea
+      class="input-form"
+      id="aboutMe"
+      name="aboutMe"
+      ngModel
+      #aboutMe="ngModel"
+      cols="40"
+      rows="10"
+    >
     </textarea>
-    <label>Genre:</label>
-    <div *ngFor="let gender of arrGenres">
-      <input 
-      type="radio" 
-      [id]="gender.id" 
-      name="genre" 
-      ngModel 
-      #genre="ngModel" 
-      [value]="gender.id" 
-      required>
-      <label [for]="gender.id"> {{gender.genre}} </label>
+  </div>
+  <div class="group-container">
+    <div class="radio-group">
+      <div *ngFor="let gender of arrGenres">
+        <div class="radio-button">
+          <label [for]="gender.id">
+            {{ gender.genre }}
+            <input
+              type="radio"
+              [id]="gender.id"
+              name="genre"
+              [(ngModel)]="gender.id"
+              #genre="ngModel"
+              [value]="gender.id"
+              required
+            />
+          </label>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="group-container">
     <label>Country:</label>
-    <select 
-    id="country" 
-    name="country" 
-    ngModel 
-    #country="ngModel"  
-    required>
-      <option selected disabled value="Select your country">Select your country</option>
-      <option *ngFor="let countryItem of arrCountries">{{countryItem.country}}</option>
+    <select
+      class="input-form"
+      id="country"
+      name="country"
+      [ngModel]="defaultSelect"
+      #country="ngModel"
+      required
+    >
+      <option selected disabled [value]="defaultSelect"
+        >Select your country</option
+      >
+      <option *ngFor="let countryItem of arrCountries">{{
+        countryItem.country
+      }}</option>
     </select>
+  </div>
+  <div class="group-container">
     <label>State:</label>
-    <select name="state" id="state"></select>
-    <label>I Agree</label>
-    <input type="checkbox">
+    <select
+      class="input-form"
+      id="state"
+      name="state"
+      ngModel
+      #state="ngModel"
+      [style.display]="country === '' ? none : block"
+      required
+    >
+      <option value="" *ngFor="let stateItem of arrCountries.state"
+        >{{ stateItem.state }}></option
+      >
+    </select>
+  </div>
+    <label class="input-form">I Agree <input type="checkbox"/></label>
 
-    <button type="submit" [disabled]="!form.valid">Submit</button>
-  </form>
-</div>
+    <button class="input-form" type="submit" [disabled]="!form.valid">
+      Submit
+    </button>
+  </div>
+</form>
