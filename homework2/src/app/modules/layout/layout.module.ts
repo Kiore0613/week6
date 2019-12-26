@@ -12,6 +12,7 @@ import { BirthdateDirective } from './directives/birthdate/birthdate.directive';
   declarations: [FormComponent, LayoutComponent, PhoneDirective, UrlDirective, BirthdateDirective],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [FormComponent, LayoutComponent, PhoneDirective, UrlDirective, BirthdateDirective]
 })
 export class LayoutModule { }
