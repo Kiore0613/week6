@@ -1,15 +1,66 @@
 <div class="container">
   <form #form="ngForm" (ngSubmit)="submit(form)">
     <label for="name">Name: </label>
-    <input type="text" id="name" #name>
+    <input type="text" id="name" name="name" ngModel #name="ngModel" minlength="4" maxlength="15" required>
+    <div class="error" *ngIf="name.touched && name.invalid">
+      <div *ngIf="name?.errors?.required">
+        Field Name is required
+      </div>
+      <div *ngIf="name?.errors?.minlength">
+        The minimum length is {{name?.errors?.minlength.requiredLength}} characters
+      </div>
+      <div *ngIf="name?.errors?.maxlength">
+        The maximun length is {{name?.errors?.maxlength.requiredLength}} characters
+      </div>
+    </div>
     <label for="lastName">Last name: </label>
-    <input type="text" id="lastName" #lastName>
+    <input type="text" id="lastName" name="lastName" ngModel #lastName="ngModel" minlength="4" maxlength="15" required>
+    <div class="error" *ngIf="lastName.touched && lastName.invalid">
+      <div *ngIf="lastName?.errors?.required">
+        Field Last Name is required
+      </div>
+      <div *ngIf="lastName?.errors?.minlength">
+        The minimum length is {{lastName?.errors?.minlength.requiredLength}} characters
+      </div>
+      <div *ngIf="lastName?.errors?.maxlength">
+        The maximun length is {{lastName?.errors?.maxlength.requiredLength}} characters
+      </div>
+    </div>
+
     <label for="email">Email: </label>
-    <input type="email" id="email" #email>
+    <input type="email" id="email" name="email" ngModel #email="ngModel" minlength="4" maxlength="15" required>
+    <div class="error" *ngIf="email.touched && email.invalid">
+      <div *ngIf="email?.errors?.required">
+        Field Email is required
+      </div>
+      <div *ngIf="email?.errors?.email">
+        The Email format is invalid
+      </div>
+    </div>
     <label for="password">Password: </label>
-    <input type="password" id="password" #password>
-    <label for="confirmPass">Confirm password: </label>
-    <input type="password" id="confirmPass" #confirmPass>
+    <input type="password" id="password" name="password" ngModel #password="ngModel" minlength="6" required>
+    <div class="error" *ngIf="password.touched && password.invalid">
+      <div *ngIf="password?.errors?.required">
+        Field Password is required
+      </div>
+      <div *ngIf="password?.errors?.minlength">
+        The minimum length is {{password?.errors?.minlength.requiredLength}} characters
+      </div>
+    </div>
+    <label for="confirmPassword">Confirm password: </label>
+    <input type="password" [pattern]="password.value" id="confirmPassword" name="confirmPassword" ngModel
+      #confirmPassword="ngModel" minlength="6" required>
+    <div class="error" *ngIf="confirmPassword.touched && confirmPassword.invalid">
+      <div *ngIf="confirmPassword?.errors?.required">
+        Field Password is required
+      </div>
+      <div *ngIf="confirmPassword?.errors?.minlength">
+        The minimum length is {{confirmPassword?.errors?.minlength.requiredLength}} characters
+      </div>
+      <div *ngIf="confirmPassword?.errors?.pattern">
+        Passwords doesn't match
+      </div>
+    </div>
     <label for="birthDate">Birth date: </label>
     <input type="date" id="birthDate" #birthDate>
     <label for="phone">Telephone number: </label>
@@ -17,7 +68,7 @@
     <label for="url">Personal site URL: </label>
     <input type="url" id="url" #url>
     <label for="aboutMe">About me: </label>
-    <textarea id="aboutMe" name="aboutMe" cols="30" rows="10">
+    <textarea id="aboutMe" name="aboutMe" ngModel #aboutMe="ngModel" cols="40" rows="10">
     </textarea>
     <label>Genre:</label>
     <input type="radio">
@@ -27,6 +78,7 @@
     <select name="state" id="state"></select>
     <label>I Agree</label>
     <input type="checkbox">
-    <button type="submit">Submit</button>
+
+    <button type="submit" [disabled]="!form.valid">Submit</button>
   </form>
 </div>
