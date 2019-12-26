@@ -78,7 +78,12 @@
       </div>
     </div>
     <label for="url">Personal site URL: </label>
-    <input type="url" id="url" #url>
+    <input type="text" id="url" name="url" ngModel #url="ngModel" appUrl>
+    <div class="error" *ngIf="url.dirty && url.invalid">
+      <div *ngIf="url?.errors?.invalidUrlFormat">
+        The URL format is invalid
+      </div>
+    </div>
     <label for="aboutMe">About me: </label>
     <textarea id="aboutMe" name="aboutMe" ngModel #aboutMe="ngModel" cols="40" rows="10">
     </textarea>
