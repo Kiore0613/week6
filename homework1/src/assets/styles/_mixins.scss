@@ -11,9 +11,3 @@
     @content;
   }
 }
-
-@mixin screen-laptop-l {
-  @media (min-width: #{$screen-laptop-l}) {
-    @content;
-  }
-}
