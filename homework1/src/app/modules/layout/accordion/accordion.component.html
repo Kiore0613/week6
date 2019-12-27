@@ -1,0 +1,32 @@
+<details [open]="isOpen">
+  <summary>{{vehicles.categoryName}}</summary>
+  <div *ngFor="let item of vehicles.vehicleCollection">
+    <img [src]="item.logo" class="img-logo">
+    <div class="item-container">
+      <h2>Brand:</h2>
+      <span>{{item.brand}}</span>
+    </div>
+    <div class="item-container">
+      <h2>Model:</h2>
+      <span>{{item.model}}</span>
+    </div>
+    <div class="item-container">
+      <h2>Price:</h2>
+      <span>{{item.price | currency: 'USD': true: "2.0-0"}} </span>
+    </div>
+    <div class="item-container">
+      <h2>Release Year:</h2>
+      <span>{{item.releaseYear}}</span>
+    </div>
+    <div class="item-container">
+      <h2>weight:</h2>
+      <span>{{item.weight | number:"1.0"}} Kg</span>
+    </div>
+    <h2 class="engine-description">Engine Description</h2>
+    <div *ngFor="let description of item.engineDescription">
+      <li>{{description}}</li>
+    </div>
+    <img [src]="item.image" class="img-car">
+    <hr>
+  </div>
+</details>
